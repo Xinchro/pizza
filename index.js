@@ -9,7 +9,7 @@ Metalsmith(__dirname)
     description: "Styleguides for various projects"
   })
   .source('./src/pages')
-  .destination('./build')
+  .destination('./docs')
   .clean(true)
   .use(markdown())
   .use(permalinks())
