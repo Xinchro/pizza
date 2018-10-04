@@ -1,4 +1,5 @@
 ---
-layout: layout.html
+layout: index.html
+links:
+  - warframedrops
 ---
-hi

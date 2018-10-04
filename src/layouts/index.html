@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>{{title}}</title>
+    <meta name="description" content="{{description}}" />
+    <link rel="shortcut icon" href="IMAGETODO" type="image/png">
+    <link rel="stylesheet" href="/css/index.css">
+
+    <meta property="og:type" content="article" />
+    <meta property="og:title" content="{{title}}" />
+    <meta property="og:site_name" content="{{title}}" />
+    <meta property="og:image" content="IMAGETODO"/>
+    <meta property="og:description" content="{{description}}" />
+    <meta property="og:locale" content="en_GB" />
+
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="{{title}}" />
+    <meta name="twitter:site" content="@xinchronize" />
+    <meta name="twitter:description" content="{{description}}" />
+    <meta name="twitter:image" content="IMAGETODO" />
+  </head>
+  <body>
+    <header>
+      {{#each links}}
+        <a href="{{this}}">{{this}}</a>
+      {{/each}}
+    </header>
+    <h1>{{title}}</h1>
+    <p>{{description}}</p>
+    {{path}}
+    <footer>
+      {{footer}}
+    </footer>
+  </body>
+</html>
