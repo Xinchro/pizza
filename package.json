@@ -4,13 +4,11 @@
   "description": "Styleguides for various projects",
   "main": "index.js",
   "scripts": {
-    "build": "node index.js",
+    "precommit": "npm run build && git add docs",
+    "build": "echo \"help me\" && node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Xinchro",
-  "pre-push": {
-    "build"
-  },
   "license": "UNLICENSED",
   "dependencies": {
     "handlebars": "^4.0.5",
@@ -23,6 +21,6 @@
     "metalsmith-sass": "^1.5.1"
   },
   "devDependencies": {
-    "pre-push": "^0.1.1"
+    "git-pre-commit": "^2.1.4"
   }
 }
