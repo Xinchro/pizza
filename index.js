@@ -4,7 +4,7 @@ const layouts = require("metalsmith-layouts")
 const permalinks = require("metalsmith-permalinks")
 const sass = require("metalsmith-sass")
 const debug = require("metalsmith-debug")
-// const collections = require("metalsmith-collections")
+const collections = require("metalsmith-collections")
 
 metalsmith(__dirname)
   .metadata({
@@ -18,11 +18,12 @@ metalsmith(__dirname)
   .use(permalinks())
   .use(layouts({
     engine: "handlebars",
+    partials: "./src/partials",
     directory: "./src/layouts",
   }))
-  // .use(collections({
-  //   projects: "./projects/*.md"
-  // }))
+  .use(collections({
+    projects: "./projects/*.md"
+  }))
   .build(function(err, files) {
     console.log("\n---- Starting page build...")
     if (err) { throw err }

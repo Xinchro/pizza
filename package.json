@@ -6,6 +6,7 @@
   "scripts": {
     "precommit": "npm run build && git add docs",
     "build": "node index.js",
+    "watch": "nodemon index.js -e js,html,md,scss --watch src",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Xinchro",
@@ -21,6 +22,7 @@
     "metalsmith-sass": "^1.5.1"
   },
   "devDependencies": {
-    "git-pre-commit": "^2.1.4"
+    "git-pre-commit": "^2.1.4",
+    "nodemon": "^1.18.4"
   }
 }

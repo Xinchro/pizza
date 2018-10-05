@@ -1,36 +1,17 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>{{title}}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="/css/{{path}}.css">
-
-    <meta name="description" content="{{description}}" />
-    <link rel="shortcut icon" href="TODOIMAGE" type="image/png">
-
-    <meta property="og:type" content="article" />
-    <meta property="og:title" content="{{title}}" />
-    <meta property="og:site_name" content="{{title}}" />
-    <meta property="og:image" content="TODOIMAGE"/>
-    <meta property="og:description" content="{{description}}" />
-    <meta property="og:locale" content="en_GB" />
-
-    <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content="{{title}}" />
-    <meta name="twitter:site" content="@xinchronize" />
-    <meta name="twitter:description" content="{{description}}" />
-    <meta name="twitter:image" content="TODOIMAGE"/>
-  </head>
+{{#> notbody}}
   <body>
     <!--[if lte IE 9]>
         <p class="browserupgrade">You are using an <strong>outdated</strong> browser. Please <a href="https://browsehappy.com/">upgrade your browser</a> to improve your experience and security.</p>
     <![endif]-->
     <section class="list-wrapper">
+      <header>
+        <img src="" alt="">
+        {{> navbar}}
+      </header>
       <ul class="content-list">
         {{{contents}}}
       </ul>
+      <footer></footer>
     </section>
   </body>
-</html>
+{{/notbody}}
