@@ -5,8 +5,70 @@ body {
   padding: 0;
 }
 
-.list-wrapper .content-list {
+.content-list {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.navbar {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+
+.navbar-item {
+  display: inline-block;
+}
+
+.navbar-link {
+  color: #ddd;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.navbar-link:before {
+  content: "[";
+}
+
+.navbar-link:after {
+  content: "]";
+}
+
+.navbar-link:hover {
+  color: #efefef;
+}
+
+.info {
+  text-align: center;
+  padding-bottom: 10px;
+  border-bottom: 5px solid #aaa;
+}
+
+.info .title {
+  font-size: 36px;
+  margin-top: 10px;
+  margin-bottom: 0;
+}
+
+.info .description {
+  margin: 5px 0;
+}
+
+.info .site {
+  text-decoration: none;
+  color: #ccc;
+}
+
+.info .site:before {
+  content: "[";
+}
+
+.info .site:after {
+  content: "]";
+}
+
+.info .site:hover {
+  color: #efefef;
 }

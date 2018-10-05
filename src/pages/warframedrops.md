@@ -1,6 +1,8 @@
 ---
 layout: project.html
 title: Warframe Drops
+description: Searchable Warframe drop tables
+site: https://search.warframedrops.info
 ---
 
 <li>

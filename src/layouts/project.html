@@ -5,9 +5,13 @@
     <![endif]-->
     <section class="list-wrapper">
       <header>
-        <img src="" alt="">
         {{> navbar}}
       </header>
+      <section class="info">
+        <h1 class="title">{{title}}</h1>
+        <p class="description">{{description}}</p>
+        <a href="{{site}}" class="site">{{site}}</a>
+      </section>
       <ul class="content-list">
         {{{contents}}}
       </ul>
