@@ -5,6 +5,7 @@ const permalinks = require("metalsmith-permalinks")
 const sass = require("metalsmith-sass")
 const debug = require("metalsmith-debug")
 const collections = require("metalsmith-collections")
+const mdPartials = require('metalsmith-markdown-partials');
 
 metalsmith(__dirname)
   .metadata({
@@ -14,6 +15,9 @@ metalsmith(__dirname)
   .source("./src/pages")
   .destination("./docs")
   .clean(true)
+  .use(mdPartials({
+    "libraryPath": './src/mdpartials/'
+  }))
   .use(markdown())
   .use(permalinks())
   .use(layouts({
