@@ -17,6 +17,10 @@ concurrency:
 
 jobs:
   deploy-storybook:
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     runs-on: ubuntu-latest
 
     steps:
@@ -27,6 +31,14 @@ jobs:
         uses: actions/setup-node@v3
         with:
           node-version: '22'
+
+      - name: "cache node modules"
+        uses: actions/cache@v3
+        with:
+          path: ~/.npm
+          key: ${{ runner.os }}-node-${{ hashFiles('**/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-node-xinchro-pizza
 
       - name: "install dependencies"
         run: npm install
