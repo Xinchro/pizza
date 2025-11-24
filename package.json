@@ -2,20 +2,20 @@
   "name": "pizza",
   "version": "0.0.1",
   "description": "Have it your way! A StencilJS component library.",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/pizza/pizza.esm.js",
+  "main": "dist-stencil/index.cjs.js",
+  "module": "dist-stencil/index.js",
+  "types": "dist-stencil/types/index.d.ts",
+  "collection": "dist-stencil/collection/collection-manifest.json",
+  "collection:main": "dist-stencil/collection/index.js",
+  "unpkg": "dist-stencil/pizza/pizza.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/pizza/pizza.esm.js",
-      "require": "./dist/pizza/pizza.cjs.js"
+      "import": "./dist-stencil/pizza/pizza.esm.js",
+      "require": "./dist-stencil/pizza/pizza.cjs.js"
     },
     "./my-component": {
-      "types": "./dist/components/my-component.d.ts",
-      "import": "./dist/components/my-component.js"
+      "types": "./dist-stencil/components/my-component.d.ts",
+      "import": "./dist-stencil/components/my-component.js"
     },
     "./loader": {
       "types": "./loader/index.d.ts",
@@ -28,12 +28,12 @@
     "url": "https://github.com/stenciljs/component-starter.git"
   },
   "files": [
-    "dist/",
+    "dist-stencil/",
     "loader/"
   ],
   "scripts": {
     "build": "rm -rf dist storybook-static && stencil build",
-    "start": "stencil build --dev --watch --serve",
+    "start": "stencil build --watch",
     "test": "stencil test --spec --e2e",
     "test.watch": "stencil test --spec --e2e --watchAll",
     "generate": "stencil generate",
