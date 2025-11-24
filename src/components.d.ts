@@ -20,6 +20,13 @@ export namespace Components {
          */
         "middle": string;
     }
+    interface XncrButton {
+        /**
+          * @default false
+         */
+        "noiseAnim": boolean;
+        "variant": string;
+    }
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -28,8 +35,15 @@ declare global {
         prototype: HTMLMyComponentElement;
         new (): HTMLMyComponentElement;
     };
+    interface HTMLXncrButtonElement extends Components.XncrButton, HTMLStencilElement {
+    }
+    var HTMLXncrButtonElement: {
+        prototype: HTMLXncrButtonElement;
+        new (): HTMLXncrButtonElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
+        "xncr-button": HTMLXncrButtonElement;
     }
 }
 declare namespace LocalJSX {
@@ -47,8 +61,16 @@ declare namespace LocalJSX {
          */
         "middle"?: string;
     }
+    interface XncrButton {
+        /**
+          * @default false
+         */
+        "noiseAnim"?: boolean;
+        "variant"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
+        "xncr-button": XncrButton;
     }
 }
 export { LocalJSX as JSX };
@@ -56,6 +78,7 @@ declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
+            "xncr-button": LocalJSX.XncrButton & JSXBase.HTMLAttributes<HTMLXncrButtonElement>;
         }
     }
 }
