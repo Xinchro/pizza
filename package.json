@@ -58,6 +58,7 @@
   "license": "ISC",
   "packageManager": "pnpm@10.22.0",
   "dependencies": {
+    "@fontsource/rajdhani": "^5.2.7",
     "concurrently": "^9.2.1"
   }
 }

@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fontsource/rajdhani':
+        specifier: ^5.2.7
+        version: 5.2.7
       concurrently:
         specifier: ^9.2.1
         version: 9.2.1
@@ -372,6 +375,9 @@ packages:
     engines: {node: '>=18'}
     cpu: [x64]
     os: [win32]
+
+  '@fontsource/rajdhani@5.2.7':
+    resolution: {integrity: sha512-7Gy10U688fCdeFfYKebUF2TZotdgH/ghKyMsseXPmB60lpaUHC8aoCSJl5/OpZ+KHKSU2TqBfKfteVkcIXxTAQ==}
 
   '@istanbuljs/load-nyc-config@1.1.0':
     resolution: {integrity: sha512-VjeHSlIzpv/NyD3N0YuHfXOPDIixcA1q2ZV98wsMqcYlPmv2n3Yb2lYP9XMElnaFVXg5A7YLTeLu6V84uQDjmQ==}
@@ -2420,6 +2426,8 @@ snapshots:
 
   '@esbuild/win32-x64@0.25.12':
     optional: true
+
+  '@fontsource/rajdhani@5.2.7': {}
 
   '@istanbuljs/load-nyc-config@1.1.0':
     dependencies:
