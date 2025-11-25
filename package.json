@@ -32,13 +32,16 @@
     "loader/"
   ],
   "scripts": {
-    "build": "rm -rf dist storybook-static && stencil build",
-    "start": "stencil build --watch",
-    "test": "stencil test --spec --e2e",
-    "test.watch": "stencil test --spec --e2e --watchAll",
-    "generate": "stencil generate",
+    "start": "concurrently \"npm run stencil:build\" \"npm run storybook:dev\"",
+    "clean": "rm -rf www dist dist-stencil storybook-static loader",
+    "build": "npm run clean && stencil build --production",
+    "build:all": "npm run clean && stencil build --production && storybook build",
+    "stencil:build": "stencil build --watch",
+    "stencil:test": "stencil test --spec --e2e",
+    "stencil:test:watch": "stencil test --spec --e2e --watchAll",
+    "stencil:generate": "stencil generate",
     "storybook:dev": "storybook dev -p 6006 --no-open",
-    "storybook:build": "rm -rf dist storybook-static && storybook build"
+    "storybook:build": "npm run clean && storybook build"
   },
   "devDependencies": {
     "@stencil/core": "^4.38.3",
@@ -53,5 +56,8 @@
     "storybook": "9.1.16"
   },
   "license": "ISC",
-  "packageManager": "pnpm@10.22.0"
+  "packageManager": "pnpm@10.22.0",
+  "dependencies": {
+    "concurrently": "^9.2.1"
+  }
 }
