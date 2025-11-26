@@ -8,5 +8,6 @@
  * to consume components of this package as outlined in the `README.md`.
  */
 
-export { format } from './utils/utils';
+export { mockObject } from '@vitest/mocker';
 export type * from './components.d.ts';
+export { format } from './utils/utils';

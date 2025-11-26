@@ -6,7 +6,6 @@ export const config: Config = {
   outputTargets: [
     {
       type: 'dist',
-      dir: 'dist-stencil',
       esmLoaderPath: '../loader',
     },
     {
@@ -16,10 +15,6 @@ export const config: Config = {
     },
     {
       type: 'docs-readme',
-    },
-    {
-      type: 'www',
-      serviceWorker: null, // disable service workers
     },
   ],
   testing: {
