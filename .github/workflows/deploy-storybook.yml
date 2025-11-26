@@ -43,8 +43,8 @@ jobs:
       - name: "install dependencies"
         run: npm install
 
-      - name: "build Storybook"
-        run: npm run storybook:build
+      - name: "build all (Stencil -> Storybook)"
+        run: npm run build:all
 
       - name: "setup Pages"
         uses: actions/configure-pages@v5
