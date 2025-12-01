@@ -1,8 +1,13 @@
-import '../dist-stencil/pizza/pizza.css';
-import { defineCustomElements } from '../loader/index.js';
+import { setCustomElementsManifest } from '@stencil/storybook-plugin';
+import customElements from '../dist-stencil/components.json';
 
-/**
- * Registers all custom elements in the Storybook preview.
- * This is useful if your components rely on other nested Stencil components.
- */
-defineCustomElements();
+(async () => {
+  if (process.env.NODE_ENV !== 'production') {
+    console.info('Storybook running in development mode, loading Stencil components...');
+    const { defineCustomElements } = await import('../loader/index.js');
+    defineCustomElements();
+  } else {
+    console.info('Storybook running in production mode.');
+  }
+})();
+setCustomElementsManifest(customElements)

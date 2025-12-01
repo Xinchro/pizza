@@ -11,8 +11,9 @@ export const config: Config = {
     },
     {
       type: 'dist-custom-elements',
+      dir: 'dist-stencil',
       customElementsExportBehavior: 'auto-define-custom-elements',
-      externalRuntime: false,
+      externalRuntime: true
     },
     {
       type: 'docs-readme',
@@ -20,6 +21,10 @@ export const config: Config = {
     {
       type: "www",
       serviceWorker: null, // disable service workers
+    },
+    {
+      type: 'docs-json',
+      file: 'dist-stencil/components.json'
     }
   ],
   testing: {
