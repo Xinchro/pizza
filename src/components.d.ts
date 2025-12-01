@@ -27,6 +27,41 @@ export namespace Components {
         "noiseAnim": boolean;
         "variant": string;
     }
+    interface XncrInput {
+        /**
+          * @default ''
+         */
+        "button": string;
+        /**
+          * @default ''
+         */
+        "idOverride": string;
+        /**
+          * @default ''
+         */
+        "label": string;
+        /**
+          * @default 'side'
+         */
+        "labelPos": 'above' | 'side';
+        "name": string;
+        /**
+          * @default ''
+         */
+        "placeholder": string;
+        /**
+          * @default false
+         */
+        "readOnly": boolean;
+        /**
+          * @default ''
+         */
+        "value": string;
+    }
+}
+export interface XncrInputCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXncrInputElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -41,9 +76,27 @@ declare global {
         prototype: HTMLXncrButtonElement;
         new (): HTMLXncrButtonElement;
     };
+    interface HTMLXncrInputElementEventMap {
+        "clicked": PointerEvent;
+    }
+    interface HTMLXncrInputElement extends Components.XncrInput, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXncrInputElementEventMap>(type: K, listener: (this: HTMLXncrInputElement, ev: XncrInputCustomEvent<HTMLXncrInputElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXncrInputElementEventMap>(type: K, listener: (this: HTMLXncrInputElement, ev: XncrInputCustomEvent<HTMLXncrInputElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
+    }
+    var HTMLXncrInputElement: {
+        prototype: HTMLXncrInputElement;
+        new (): HTMLXncrInputElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "xncr-button": HTMLXncrButtonElement;
+        "xncr-input": HTMLXncrInputElement;
     }
 }
 declare namespace LocalJSX {
@@ -68,9 +121,42 @@ declare namespace LocalJSX {
         "noiseAnim"?: boolean;
         "variant"?: string;
     }
+    interface XncrInput {
+        /**
+          * @default ''
+         */
+        "button"?: string;
+        /**
+          * @default ''
+         */
+        "idOverride"?: string;
+        /**
+          * @default ''
+         */
+        "label"?: string;
+        /**
+          * @default 'side'
+         */
+        "labelPos"?: 'above' | 'side';
+        "name"?: string;
+        "onClicked"?: (event: XncrInputCustomEvent<PointerEvent>) => void;
+        /**
+          * @default ''
+         */
+        "placeholder"?: string;
+        /**
+          * @default false
+         */
+        "readOnly"?: boolean;
+        /**
+          * @default ''
+         */
+        "value"?: string;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "xncr-button": XncrButton;
+        "xncr-input": XncrInput;
     }
 }
 export { LocalJSX as JSX };
@@ -79,6 +165,7 @@ declare module "@stencil/core" {
         interface IntrinsicElements {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "xncr-button": LocalJSX.XncrButton & JSXBase.HTMLAttributes<HTMLXncrButtonElement>;
+            "xncr-input": LocalJSX.XncrInput & JSXBase.HTMLAttributes<HTMLXncrInputElement>;
         }
     }
 }

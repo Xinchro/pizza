@@ -1,7 +1,13 @@
 :root {
   --col-primary: #202020;
+  --col-primary-dark: #151515;
+  --col-primary-light: #2f2f2f;
   --col-secondary: #eeeeee;
+  --col-secondary-dark: #e0e0e0;
+  --col-secondary-light: #fefefe;
   --col-trim: #dd0000;
+  --col-trim-dark: #d00000;
+  --col-trim-light: #ff0000;
 }
 
 /* rajdhani-latin-400-normal */

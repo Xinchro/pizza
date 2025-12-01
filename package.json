@@ -2,24 +2,34 @@
   "name": "pizza",
   "version": "0.0.1",
   "description": "Have it your way! A StencilJS component library.",
-  "main": "dist/index.cjs.js",
-  "module": "dist/index.js",
-  "types": "dist/types/index.d.ts",
-  "collection": "dist/collection/collection-manifest.json",
-  "collection:main": "dist/collection/index.js",
-  "unpkg": "dist/pizza/pizza.esm.js",
+  "main": "dist-stencil/index.cjs.js",
+  "module": "dist-stencil/index.js",
+  "types": "dist-stencil/types/index.d.ts",
+  "collection": "dist-stencil/collection/collection-manifest.json",
+  "collection:main": "dist-stencil/collection/index.js",
+  "unpkg": "dist-stencil/pizza/pizza.esm.js",
   "exports": {
     ".": {
-      "import": "./dist/pizza/pizza.esm.js",
-      "require": "./dist/pizza/pizza.cjs.js"
+      "import": "./dist-stencil/pizza/pizza.esm.js",
+      "require": "./dist-stencil/pizza/pizza.cjs.js"
+    },
+    "./loader": {
+      "types": "./loader/index.d.ts",
+      "import": "./loader/index.2017.js",
+      "require": "./loader/index.cjs.js"
     }
   },
+  "files": [
+    "dist-stencil/",
+    "loader/"
+  ],
   "scripts": {
-    "start": "concurrently \"npm run stencil:build\" \"npm run storybook:dev\"",
+    "start": "concurrently \"npm run stencil:watch:prod\" \"npm run storybook:dev\"",
     "clean": "rm -rf www dist dist-stencil storybook-static loader",
     "build": "npm run clean && stencil build --production",
     "build:all": "npm run clean && stencil build --production && storybook build",
-    "stencil:build": "stencil build --watch",
+    "stencil:watch": "stencil build --dev --watch",
+    "stencil:watch:prod": "stencil build --watch",
     "stencil:test": "stencil test --spec --e2e",
     "stencil:test:watch": "stencil test --spec --e2e --watchAll",
     "stencil:generate": "stencil generate",
