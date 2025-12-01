@@ -1,5 +1,6 @@
 import { setCustomElementsManifest } from '@stencil/storybook-plugin';
 import customElements from '../dist-stencil/components.json';
+import '../dist-stencil/pizza/pizza.css';
 
 (async () => {
   if (process.env.NODE_ENV !== 'production') {
