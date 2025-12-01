@@ -16,7 +16,7 @@
   },
   "scripts": {
     "start": "concurrently \"npm run stencil:build\" \"npm run storybook:dev\"",
-    "clean": "rm -rf www dist dist storybook-static loader",
+    "clean": "rm -rf www dist dist-stencil storybook-static loader",
     "build": "npm run clean && stencil build --production",
     "build:all": "npm run clean && stencil build --production && storybook build",
     "stencil:build": "stencil build --watch",
@@ -42,6 +42,7 @@
   "packageManager": "pnpm@10.22.0",
   "dependencies": {
     "@fontsource/rajdhani": "^5.2.7",
+    "@vitest/mocker": "^4.0.14",
     "concurrently": "^9.2.1"
   }
 }
