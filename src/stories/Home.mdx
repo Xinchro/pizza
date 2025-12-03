@@ -1,0 +1,70 @@
+# Pizza Component Library
+
+export const meta = { title: 'Home' };
+
+export const getBuildDate = () => {
+	if (typeof process !== 'undefined' && process.env && process.env.BUILD_DATE) return process.env.BUILD_DATE
+	return 'unknown'
+};
+
+export const navigateToStory = (storyId) => (e) => {
+	e.preventDefault();
+	window.parent.history.pushState({}, '', `/?path=/story/${storyId}`);
+	window.parent.dispatchEvent(new PopStateEvent('popstate'));
+};
+
+## A tasty UI toolkit
+
+<div>
+  <img src="https://images.unsplash.com/vector-1740806718930-14b3b33e456e?auto=format&fit=crop&w=1200&h=400&q=80" alt="Pizza illustration" style={{ width: '100%', height: 'auto', marginTop: 0, marginBottom: 0 }} />
+  <div style={{ fontSize: '0.75rem', color: '#888', marginTop: 5, marginBottom: 0 }}>
+    {"Supplied by "}
+    <a href="https://unsplash.com/illustrations/a-slice-of-pizza-with-toppings-on-it-fb442PnwmvU" target="_blank" rel="noopener noreferrer" style={{ color: '#888', textDecoration: 'underline' }}>
+      {"Unsplash"}
+    </a>
+  </div>
+</div>
+
+---
+
+<div style={{
+	display: 'grid',
+	gridTemplateColumns: 'repeat(auto-fit, minmax(220px, 1fr))',
+	gap: 16,
+	marginTop: 16
+}}>
+	<a href="#xncrbutton--primary" onClick={navigateToStory('xncrbutton--primary')} style={{ textDecoration: 'none', color: 'inherit' }}>
+		<div style={{ border: '1px solid #e0e0e0', borderRadius: 8, padding: 16, transition: 'all 0.2s ease', cursor: 'pointer' }} onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#999'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)'; }} onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#e0e0e0'; e.currentTarget.style.boxShadow = 'none'; }}>
+			<strong>XNCR Button</strong>
+			<p style={{ marginTop: 8 }}>{"See "}<code>{"components/xncr-button"}</code></p>
+		</div>
+	</a>
+	<a href="#xncrinput--combined-button-label" onClick={navigateToStory('xncrinput--combined-button-label')} style={{ textDecoration: 'none', color: 'inherit' }}>
+		<div style={{ border: '1px solid #e0e0e0', borderRadius: 8, padding: 16, transition: 'all 0.2s ease', cursor: 'pointer' }} onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#999'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)'; }} onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#e0e0e0'; e.currentTarget.style.boxShadow = 'none'; }}>
+			<strong>XNCR Input</strong>
+			<p style={{ marginTop: 8 }}>{"See "}<code>{"components/xncr-input"}</code></p>
+		</div>
+	</a>
+	<a href="#mycomponent--primary" onClick={navigateToStory('mycomponent--primary')} style={{ textDecoration: 'none', color: 'inherit' }}>
+		<div style={{ border: '1px solid #e0e0e0', borderRadius: 8, padding: 16, transition: 'all 0.2s ease', cursor: 'pointer' }} onMouseEnter={(e) => { e.currentTarget.style.borderColor = '#999'; e.currentTarget.style.boxShadow = '0 2px 8px rgba(0,0,0,0.1)'; }} onMouseLeave={(e) => { e.currentTarget.style.borderColor = '#e0e0e0'; e.currentTarget.style.boxShadow = 'none'; }}>
+			<strong>My Component</strong>
+			<p style={{ marginTop: 8 }}>{"See "}<code>{"components/my-component"}</code></p>
+		</div>
+	</a>
+</div>
+
+---
+
+<div style={{
+	display: 'flex',
+	flexWrap: 'wrap',
+	gap: 16,
+	alignItems: 'center',
+	justifyContent: 'center',
+	marginTop: 8,
+	color: '#555'
+}}>
+	<span>Xinchro</span>
+	<span><a href="https://xinchronize.com" target="_blank" rel="noopener noreferrer">https://xinchronize.com</a></span>
+	<span>Updated: {getBuildDate()}</span>
+</div>
