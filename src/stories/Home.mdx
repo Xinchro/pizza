@@ -2,11 +2,6 @@
 
 export const meta = { title: 'Home' };
 
-export const getBuildDate = () => {
-	if (typeof process !== 'undefined' && process.env && process.env.BUILD_DATE) return process.env.BUILD_DATE
-	return 'unknown'
-};
-
 export const navigateToStory = (storyId) => (e) => {
 	e.preventDefault();
 	window.parent.history.pushState({}, '', `/?path=/story/${storyId}`);
@@ -66,5 +61,4 @@ export const navigateToStory = (storyId) => (e) => {
 }}>
 	<span>Xinchro</span>
 	<span><a href="https://xinchronize.com" target="_blank" rel="noopener noreferrer">https://xinchronize.com</a></span>
-	<span>Updated: {getBuildDate()}</span>
 </div>

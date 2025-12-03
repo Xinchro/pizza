@@ -43,13 +43,7 @@ jobs:
       - name: "install dependencies"
         run: npm install
 
-      - name: "get current date"
-        id: date
-        run: echo "date=$(date +'%B %d, %Y')" >> $GITHUB_OUTPUT
-
       - name: "build all (Stencil -> Storybook)"
-        env:
-          BUILD_DATE: ${{ steps.date.outputs.date }}
         run: npm run build:all
 
       - name: "setup Pages"
