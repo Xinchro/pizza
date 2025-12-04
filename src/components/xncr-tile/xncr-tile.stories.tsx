@@ -131,6 +131,12 @@ export const MixedContent: Story = {
           </div>
           <span slot="footer">{footer}</span>
         </xncr-tile>
+        <xncr-tile headingLevel={1} footerAlign={'center'}>
+          <span slot="heading">No footer</span>
+          <div slot="content">
+            Some text
+          </div>
+        </xncr-tile>
       </div>
     );
   },

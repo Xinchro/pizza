@@ -1,4 +1,4 @@
-import { Component, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
+import { Component, Element, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
 
 @Component({
   tag: 'xncr-tile',
@@ -6,12 +6,18 @@ import { Component, Event, EventEmitter, h, Host, Prop } from '@stencil/core';
   shadow: true,
 })
 export class XncrTile {
+  @Element() el: HTMLElement;
   @Prop() headingLevel: 1 | 2 | 3 | 4 | 5 = 3;
   @Prop() footerAlign: 'left' | 'center' | 'right' = 'left';
   @Prop() href?: string;
   @Prop() rel?: string;
   @Prop() clickable?: boolean;
   @Event() clicked: EventEmitter<MouseEvent>;
+
+  private hasFooterContent(): boolean {
+    const footerSlot = this.el.querySelector('[slot="footer"]');
+    return footerSlot !== null;
+  }
 
   render() {
     const HeadingTag = `h${this.headingLevel}` as 'h1' | 'h2' | 'h3' | 'h4' | 'h5';
@@ -22,6 +28,8 @@ export class XncrTile {
     if (this.href && this.clickable) {
       console.warn('xncr-tile: Both href and clickable are set. href takes priority.');
     }
+
+    const hasFooter = this.hasFooterContent();
 
     const content = [
       <HeadingTag class="heading">
@@ -34,8 +42,8 @@ export class XncrTile {
       <div class="content">
         <slot name='content'></slot>
       </div>,
-      <hr />,
-      <div class="footer" style={{ textAlign: this.footerAlign }}>
+      hasFooter && <hr />,
+      hasFooter && <div class="footer" style={{ textAlign: this.footerAlign }}>
         <slot name='footer'></slot>
       </div>
     ];
