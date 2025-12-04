@@ -59,6 +59,7 @@ export namespace Components {
         "value": string;
     }
     interface XncrTile {
+        "clickable"?: boolean;
         /**
           * @default 'left'
          */
@@ -67,11 +68,17 @@ export namespace Components {
           * @default 3
          */
         "headingLevel": 1 | 2 | 3 | 4 | 5;
+        "href"?: string;
+        "rel"?: string;
     }
 }
 export interface XncrInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
     target: HTMLXncrInputElement;
+}
+export interface XncrTileCustomEvent<T> extends CustomEvent<T> {
+    detail: T;
+    target: HTMLXncrTileElement;
 }
 declare global {
     interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
@@ -103,7 +110,18 @@ declare global {
         prototype: HTMLXncrInputElement;
         new (): HTMLXncrInputElement;
     };
+    interface HTMLXncrTileElementEventMap {
+        "clicked": MouseEvent;
+    }
     interface HTMLXncrTileElement extends Components.XncrTile, HTMLStencilElement {
+        addEventListener<K extends keyof HTMLXncrTileElementEventMap>(type: K, listener: (this: HTMLXncrTileElement, ev: XncrTileCustomEvent<HTMLXncrTileElementEventMap[K]>) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | AddEventListenerOptions): void;
+        addEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | AddEventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLXncrTileElementEventMap>(type: K, listener: (this: HTMLXncrTileElement, ev: XncrTileCustomEvent<HTMLXncrTileElementEventMap[K]>) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof DocumentEventMap>(type: K, listener: (this: Document, ev: DocumentEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener<K extends keyof HTMLElementEventMap>(type: K, listener: (this: HTMLElement, ev: HTMLElementEventMap[K]) => any, options?: boolean | EventListenerOptions): void;
+        removeEventListener(type: string, listener: EventListenerOrEventListenerObject, options?: boolean | EventListenerOptions): void;
     }
     var HTMLXncrTileElement: {
         prototype: HTMLXncrTileElement;
@@ -171,6 +189,7 @@ declare namespace LocalJSX {
         "value"?: string;
     }
     interface XncrTile {
+        "clickable"?: boolean;
         /**
           * @default 'left'
          */
@@ -179,6 +198,9 @@ declare namespace LocalJSX {
           * @default 3
          */
         "headingLevel"?: 1 | 2 | 3 | 4 | 5;
+        "href"?: string;
+        "onClicked"?: (event: XncrTileCustomEvent<MouseEvent>) => void;
+        "rel"?: string;
     }
     interface IntrinsicElements {
         "my-component": MyComponent;
