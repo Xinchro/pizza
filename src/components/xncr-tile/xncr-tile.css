@@ -1,0 +1,64 @@
+:host {
+  display: block;
+  background: var(--col-primary);
+  color: var(--col-secondary);
+  border: 1px solid var(--col-trim);
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  height: 100%;
+  box-sizing: border-box;
+  transition:
+    box-shadow 0.2s ease,
+    border-color 0.2s ease;
+}
+
+:host(:hover) {
+  border-color: var(--col-trim-light);
+  box-shadow: 0 2px 8px var(--col-trim-dark);
+  cursor: pointer;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+  padding: 0;
+}
+
+hr {
+  margin: 10px 0;
+  border: none;
+  border-top: 1px solid var(--col-trim);
+}
+
+::slotted([slot="heading"]) {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-weight: 700 !important;
+}
+
+::slotted([slot="subheading"]) {
+  display: block;
+  text-align: right;
+  margin: 0;
+  padding: 0;
+  font-weight: 500 !important;
+}
+
+::slotted([slot="content"]) {
+  display: block;
+  margin: 0;
+  padding: 0;
+}
+
+::slotted([slot="footer"]) {
+  display: block;
+  margin: 0;
+  padding: 0;
+  font-size: 0.7rem;
+}

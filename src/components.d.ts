@@ -58,6 +58,16 @@ export namespace Components {
          */
         "value": string;
     }
+    interface XncrTile {
+        /**
+          * @default 'left'
+         */
+        "footerAlign": 'left' | 'center' | 'right';
+        /**
+          * @default 3
+         */
+        "headingLevel": 1 | 2 | 3 | 4 | 5;
+    }
 }
 export interface XncrInputCustomEvent<T> extends CustomEvent<T> {
     detail: T;
@@ -93,10 +103,17 @@ declare global {
         prototype: HTMLXncrInputElement;
         new (): HTMLXncrInputElement;
     };
+    interface HTMLXncrTileElement extends Components.XncrTile, HTMLStencilElement {
+    }
+    var HTMLXncrTileElement: {
+        prototype: HTMLXncrTileElement;
+        new (): HTMLXncrTileElement;
+    };
     interface HTMLElementTagNameMap {
         "my-component": HTMLMyComponentElement;
         "xncr-button": HTMLXncrButtonElement;
         "xncr-input": HTMLXncrInputElement;
+        "xncr-tile": HTMLXncrTileElement;
     }
 }
 declare namespace LocalJSX {
@@ -153,10 +170,21 @@ declare namespace LocalJSX {
          */
         "value"?: string;
     }
+    interface XncrTile {
+        /**
+          * @default 'left'
+         */
+        "footerAlign"?: 'left' | 'center' | 'right';
+        /**
+          * @default 3
+         */
+        "headingLevel"?: 1 | 2 | 3 | 4 | 5;
+    }
     interface IntrinsicElements {
         "my-component": MyComponent;
         "xncr-button": XncrButton;
         "xncr-input": XncrInput;
+        "xncr-tile": XncrTile;
     }
 }
 export { LocalJSX as JSX };
@@ -166,6 +194,7 @@ declare module "@stencil/core" {
             "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "xncr-button": LocalJSX.XncrButton & JSXBase.HTMLAttributes<HTMLXncrButtonElement>;
             "xncr-input": LocalJSX.XncrInput & JSXBase.HTMLAttributes<HTMLXncrInputElement>;
+            "xncr-tile": LocalJSX.XncrTile & JSXBase.HTMLAttributes<HTMLXncrTileElement>;
         }
     }
 }
