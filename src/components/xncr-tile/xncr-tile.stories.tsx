@@ -184,7 +184,7 @@ export const Links: Story = {
   render: () => (
     <div style={{ display: 'flex', gap: '10px', flexDirection: 'row' }}>
       <xncr-tile
-        href="/?path=/story/xncrtile--links"
+        href="?path=/story/xncrtile--links"
         headingLevel={2}
       >
         <span slot="heading">Link Tile</span>
@@ -193,7 +193,7 @@ export const Links: Story = {
         <span slot="footer">Anchor mode</span>
       </xncr-tile>
       <xncr-tile
-        href="/?path=/story/xncrtile--links"
+        href="?path=/story/xncrtile--links"
         rel="noopener noreferrer"
         headingLevel={2}
         footerAlign="right"
