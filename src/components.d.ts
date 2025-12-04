@@ -6,20 +6,6 @@
  */
 import { HTMLStencilElement, JSXBase } from "@stencil/core/internal";
 export namespace Components {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first": string;
-        /**
-          * The last name
-         */
-        "last": string;
-        /**
-          * The middle name
-         */
-        "middle": string;
-    }
     interface XncrButton {
         /**
           * @default false
@@ -81,12 +67,6 @@ export interface XncrTileCustomEvent<T> extends CustomEvent<T> {
     target: HTMLXncrTileElement;
 }
 declare global {
-    interface HTMLMyComponentElement extends Components.MyComponent, HTMLStencilElement {
-    }
-    var HTMLMyComponentElement: {
-        prototype: HTMLMyComponentElement;
-        new (): HTMLMyComponentElement;
-    };
     interface HTMLXncrButtonElement extends Components.XncrButton, HTMLStencilElement {
     }
     var HTMLXncrButtonElement: {
@@ -128,27 +108,12 @@ declare global {
         new (): HTMLXncrTileElement;
     };
     interface HTMLElementTagNameMap {
-        "my-component": HTMLMyComponentElement;
         "xncr-button": HTMLXncrButtonElement;
         "xncr-input": HTMLXncrInputElement;
         "xncr-tile": HTMLXncrTileElement;
     }
 }
 declare namespace LocalJSX {
-    interface MyComponent {
-        /**
-          * The first name
-         */
-        "first"?: string;
-        /**
-          * The last name
-         */
-        "last"?: string;
-        /**
-          * The middle name
-         */
-        "middle"?: string;
-    }
     interface XncrButton {
         /**
           * @default false
@@ -203,7 +168,6 @@ declare namespace LocalJSX {
         "rel"?: string;
     }
     interface IntrinsicElements {
-        "my-component": MyComponent;
         "xncr-button": XncrButton;
         "xncr-input": XncrInput;
         "xncr-tile": XncrTile;
@@ -213,7 +177,6 @@ export { LocalJSX as JSX };
 declare module "@stencil/core" {
     export namespace JSX {
         interface IntrinsicElements {
-            "my-component": LocalJSX.MyComponent & JSXBase.HTMLAttributes<HTMLMyComponentElement>;
             "xncr-button": LocalJSX.XncrButton & JSXBase.HTMLAttributes<HTMLXncrButtonElement>;
             "xncr-input": LocalJSX.XncrInput & JSXBase.HTMLAttributes<HTMLXncrInputElement>;
             "xncr-tile": LocalJSX.XncrTile & JSXBase.HTMLAttributes<HTMLXncrTileElement>;
